@@ -1,5 +1,5 @@
 <% if @user.errors.any? %>
-  <h3>The following errors prevented the user from being created</h3>
+  <h3>The following errors prevented you from signing up!</h3>
   <ul>
     <% @user.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
