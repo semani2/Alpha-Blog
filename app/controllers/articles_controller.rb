@@ -9,7 +9,8 @@ class ArticlesController < ApplicationController
   end
 
   def new
-
+    # This is for the error case from create
+    @article = Article.new
   end
 
   def create
@@ -17,10 +18,17 @@ class ArticlesController < ApplicationController
     # Creating a new article from the params received on the post call.
     # Additionally, we are white listing title and description
     @article = Article.new(params.require(:article).permit(:title, :description))
-    @article.save
+    puts @article
+    if @article.save
 
-    # get this article_path from rails routes --expanded
-    # can also use redirect_to @article
-    redirect_to article_path(@article)
+      flash[:notice] = "Article was created successfully!"
+
+      # get this article_path from rails routes --expanded
+      # can also use redirect_to @article
+      redirect_to article_path(@article)
+    else
+      puts @article.errors.full_messages
+      render 'new'
+    end
   end
 end
