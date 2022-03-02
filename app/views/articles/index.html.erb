@@ -6,6 +6,7 @@
       <th>Title</th>
       <th>Description</th>
       <th colspan="3">Actions</th>
+      <th>Author</th>
     </tr>
   </thead>
 
@@ -17,6 +18,7 @@
         <td><%= link_to 'Show', article_path(article) %></td> &nbsp;
         <td><%= link_to 'Edit', edit_article_path(article) %></td>&nbsp;
         <td><%= link_to 'Delete', article_path(article), data: { "turbo-method": :delete , "turbo-confirm": "Are you sure?"} %></td>&nbsp;
+        <td><%= article.user.username %></td>
       </tr>
     <% end %>
   </tbody>
