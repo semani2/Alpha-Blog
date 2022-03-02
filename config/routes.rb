@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   # About page
   get 'about', to: 'pages#about'
 
+  # Signup page
+  get 'signup', to: 'users#new'
+
   #resources :articles, only: [:show, :index, :new, :create, :edit, :update, :destroy]
   resources :articles
+
+  resources :users, except: [:new]
 end
