@@ -1,5 +1,7 @@
 class Article < ApplicationRecord
 
+  belongs_to :user
+
   # Validates that no article is created with an empty title with a min and max length
   validates :title, presence: true, length: { minimum: 6, maximum: 100 }
 
