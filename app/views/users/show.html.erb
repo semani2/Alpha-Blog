@@ -1,0 +1,9 @@
+<h1>Hello! <%= @user.username %></h1>
+
+<div>
+  <%= link_to "Edit your profile", edit_user_path(@user) %>
+</div>
+
+<h3>Here are your articles</h3>
+
+<%= render 'articles/article', obj: @user.articles %>
