@@ -5,6 +5,9 @@
 <%= render 'article', obj: @articles %>
 
 <p>
-  <%= link_to "Create new article", new_article_path %> |
+  <% if logged_in? %>
+    <%= link_to "Create new article", new_article_path %> |
+  <% end %>
+
   <%= link_to "Home", root_path %>
 </p>

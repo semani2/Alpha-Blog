@@ -1,9 +1,17 @@
 <h1>Hello! <%= @user.username %></h1>
 
-<div>
-  <%= link_to "Edit your profile", edit_user_path(@user) %>
-</div>
+<% if logged_in? && current_user == @user %>
+  <div>
+    <%= link_to "Edit your profile", edit_user_path(@user) %>
+  </div>
 
-<h3>Here are your articles</h3>
+
+  <div>
+      <%= link_to "Logout", logout_path, data: { "turbo-method": :delete} %>
+  </div>
+<% end %>
+
+
+<h3>Articles</h3>
 
 <%= render 'articles/article', obj: @user.articles %>
