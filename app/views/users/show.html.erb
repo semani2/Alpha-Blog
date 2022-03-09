@@ -9,6 +9,10 @@
   <div>
       <%= link_to "Logout", logout_path, data: { "turbo-method": :delete} %>
   </div>
+
+  <div>
+    <%= link_to "Delete your account", user_path(@user), data: { "turbo-method": :delete, "turbo-confirm": "Are you sure?"} %>
+  </div>
 <% end %>
 
 
